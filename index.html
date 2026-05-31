@@ -22,7 +22,7 @@
     const RESOURCE_LINK = 'https://drive.google.com/drive/mobile/folders/15gp5_4MZkwV22x9H_aiayz9a3Z9cnrCh?usp=drive_link';
 
     const zep = (english, chinese, russian, vietnamese) => ({ english, chinese, russian, vietnamese });
-    const img = (unit, file) => `${IMAGE_ROOT}/${unit}단원/${encodeURI(file)}`;
+    const img = (unit, file) => `${IMAGE_ROOT}/${unit}단원/${encodeURI(file.normalize('NFC'))}`;
     const item = (unit, id, word, file, picture, type = 'word', audio = word) => ({ id, word, imageUrl: img(unit, file), picture, type, audio });
 
     const UNITS = [
@@ -41,8 +41,8 @@
           item(1, 7, '필리핀', '필리핀.png', '필리핀 국기', 'country'),
           item(1, 8, '카자흐스탄', '카자흐스탄.png', '카자흐스탄 국기', 'country'),
           item(1, 9, '안녕하세요', '안녕하세요.png', '인사하는 친구', 'expression'),
-          item(1, 10, '이름이 뭐예요? 저는 제니예요.', '이름이 뭐예요 제니예요.png', '이름을 묻고 대답하는 장면', 'expression'),
-          item(1, 11, '어느 나라 사람이에요? 저는 러시아 사람이에요.', '어느 나라 사람이에요 저는 러시아 사람이에요.png', '나라를 묻고 대답하는 장면', 'expression')
+          item(1, 10, '이름이 뭐예요? 저는 제니예요.', '이름이 뭐예요 제니예요.png', '이름을 묻고 대답하는 장면', 'expression'),
+          item(1, 11, '어느 나라 사람이에요? 저는 러시아 사람이에요.', '어느 나라 사람이에요 저는 러시아 사람이에요.png', '나라를 묻고 대답하는 장면', 'expression')
         ]
       },
       {
@@ -51,8 +51,14 @@
         youtube: 'https://youtu.be/gudjZoUMR-Q',
         zep: zep('https://quiz.zep.us/play/Kwm35R', 'https://quiz.zep.us/play/odeaK5', 'https://quiz.zep.us/play/Z9kmwV', 'https://quiz.zep.us/play/Pw6WbR'),
         vocab: [
-          item(2, 1, '가위', '가위.png', '가위'), item(2, 2, '시계', '시계.png', '시계'), item(2, 3, '연필', '연필.png', '연필'), item(2, 4, '의자', '의자.png', '의자'),
-          item(2, 5, '지우개', '지우개.png', '지우개'), item(2, 6, '책', '책.png', '책'), item(2, 7, '책상', '책상.png', '책상'), item(2, 8, '풀', '풀.png', '풀'),
+          item(2, 1, '가위', '가위.png', '가위'),
+          item(2, 2, '시계', '시계.png', '시계'),
+          item(2, 3, '연필', '연필.png', '연필'),
+          item(2, 4, '의자', '의자.png', '의자'),
+          item(2, 5, '지우개', '지우개.png', '지우개'),
+          item(2, 6, '책', '책.png', '책'),
+          item(2, 7, '책상', '책상.png', '책상'),
+          item(2, 8, '풀', '풀.png', '풀'),
           item(2, 9, '이게 뭐예요? 지우개예요.', '이게뭐예요 지우개예요.png', '가까운 물건을 묻고 답하는 장면', 'expression'),
           item(2, 10, '저게 뭐예요? 책상이에요.', '저게 뭐예요 책상이에요.png', '먼 물건을 묻고 답하는 장면', 'expression')
         ]
@@ -63,8 +69,14 @@
         youtube: 'https://youtu.be/asK7r0k7b48',
         zep: zep('https://quiz.zep.us/play/1GYmmO', 'https://quiz.zep.us/play/XW4a0X', 'https://quiz.zep.us/play/bLbWLj', 'https://quiz.zep.us/play/LBg1Be'),
         vocab: [
-          item(3, 1, '과학실', '과학실.png', '과학실'), item(3, 2, '교실', '교실.png', '교실'), item(3, 3, '급식실', '급식실.png', '급식실'), item(3, 4, '도서관', '도서관.png', '도서관'),
-          item(3, 5, '보건실', '보건실.png', '보건실'), item(3, 6, '운동장', '운동장.png', '운동장'), item(3, 7, '체육관', '체육관.png', '체육관'), item(3, 8, '화장실', '화장실.png', '화장실'),
+          item(3, 1, '과학실', '과학실.png', '과학실'),
+          item(3, 2, '교실', '교실.png', '교실'),
+          item(3, 3, '급식실', '급식실.png', '급식실'),
+          item(3, 4, '도서관', '도서관.png', '도서관'),
+          item(3, 5, '보건실', '보건실.png', '보건실'),
+          item(3, 6, '운동장', '운동장.png', '운동장'),
+          item(3, 7, '체육관', '체육관.png', '체육관'),
+          item(3, 8, '화장실', '화장실.png', '화장실'),
           item(3, 9, '여기가 어디예요? 교실이에요.', '여기가 어디예요 교실이에요.png', '가까운 장소를 묻고 답하는 장면', 'expression'),
           item(3, 10, '운동장이 어디예요? 저기예요.', '운동장이 어디예요 저기예요.png', '운동장의 위치를 묻고 답하는 장면', 'expression')
         ]
@@ -75,8 +87,14 @@
         youtube: 'https://youtu.be/y9U4b0jOA6o',
         zep: zep('https://quiz.zep.us/play/eX3Px3', 'https://quiz.zep.us/play/kP7jgX', 'https://quiz.zep.us/play/7R09ra', 'https://quiz.zep.us/play/6P4v3V'),
         vocab: [
-          item(4, 1, '걸어요', '걸어요.png', '걷는 모습'), item(4, 2, '공부해요', '공부해요.png', '공부하는 모습'), item(4, 3, '노래해요', '노래해요.png', '노래하는 모습'), item(4, 4, '수영해요', '수영해요.png', '수영하는 모습'),
-          item(4, 5, '운동해요', '운동해요.png', '운동하는 모습'), item(4, 6, '이야기해요', '이야기해요.png', '이야기하는 모습'), item(4, 7, '청소해요', '청소해요.png', '청소하는 모습'), item(4, 8, '축구해요', '축구해요.png', '축구하는 모습'),
+          item(4, 1, '걸어요', '걸어요.png', '걷는 모습'),
+          item(4, 2, '공부해요', '공부해요.png', '공부하는 모습'),
+          item(4, 3, '노래해요', '노래해요.png', '노래하는 모습'),
+          item(4, 4, '수영해요', '수영해요.png', '수영하는 모습'),
+          item(4, 5, '운동해요', '운동해요.png', '운동하는 모습'),
+          item(4, 6, '이야기해요', '이야기해요.png', '이야기하는 모습'),
+          item(4, 7, '청소해요', '청소해요.png', '청소하는 모습'),
+          item(4, 8, '축구해요', '축구해요.png', '축구하는 모습'),
           item(4, 9, '뭐해요? 이야기해요.', '뭐해요 이야기해요.png', '무엇을 하는지 묻고 답하는 장면', 'expression'),
           item(4, 10, '뭐해요? 축구해요.', '뭐해요 축구해요.png', '축구하는지 묻고 답하는 장면', 'expression')
         ]
@@ -87,8 +105,14 @@
         youtube: 'https://youtu.be/YTTRALzt2_0',
         zep: zep('https://quiz.zep.us/play/vJe10p', 'https://quiz.zep.us/play/QaJ09P', 'https://quiz.zep.us/play/OvlQqX', 'https://quiz.zep.us/play/LBg1qj'),
         vocab: [
-          item(5, 1, '그림을 그려요', '그림을 그려요.png', '그림을 그리는 모습'), item(5, 2, '물을 마셔요', '물을 마셔요.png', '물을 마시는 모습'), item(5, 3, '밥을 먹어요', '밥을 먹어요.png', '밥을 먹는 모습'), item(5, 4, '음악을 들어요', '음악을 들어요.png', '음악을 듣는 모습'),
-          item(5, 5, '자전거를 타요', '자전거를 타요.png', '자전거를 타는 모습'), item(5, 6, '책을 읽어요', '책을 읽어요.png', '책을 읽는 모습'), item(5, 7, '친구를 만나요', '친구를 만나요.png', '친구를 만나는 모습'), item(5, 8, '텔레비전을 봐요', '텔레비전을 봐요.png', '텔레비전을 보는 모습'),
+          item(5, 1, '그림을 그려요', '그림을 그려요.png', '그림을 그리는 모습'),
+          item(5, 2, '물을 마셔요', '물을 마셔요.png', '물을 마시는 모습'),
+          item(5, 3, '밥을 먹어요', '밥을 먹어요.png', '밥을 먹는 모습'),
+          item(5, 4, '음악을 들어요', '음악을 들어요.png', '음악을 듣는 모습'),
+          item(5, 5, '자전거를 타요', '자전거를 타요.png', '자전거를 타는 모습'),
+          item(5, 6, '책을 읽어요', '책을 읽어요.png', '책을 읽는 모습'),
+          item(5, 7, '친구를 만나요', '친구를 만나요.png', '친구를 만나는 모습'),
+          item(5, 8, '텔레비전을 봐요', '텔레비전을 봐요.png', '텔레비전을 보는 모습'),
           item(5, 9, '교실에서 뭐해요? 텔레비전을 봐요.', '교실에서 뭐해요 텔레비전을 봐요.png', '교실에서 하는 일을 묻고 답하는 장면', 'expression'),
           item(5, 10, '운동장에서 뭐해요? 자전거를 타요.', '운동장에서 뭐해요 자전거를 타요.png', '운동장에서 하는 일을 묻고 답하는 장면', 'expression')
         ]
@@ -99,10 +123,12 @@
         youtube: 'https://youtu.be/soLnrgFDNZw',
         zep: zep('https://quiz.zep.us/play/5rQBkX', 'https://quiz.zep.us/play/7R09kO', 'https://quiz.zep.us/play/lpeoLR', 'https://quiz.zep.us/play/dJqX94'),
         vocab: [
-          item(6, 1, '1시', '1시.png', '1시'), item(6, 2, '2시', '2시.png', '2시'), item(6, 3, '3시', '3시.png', '3시'), item(6, 4, '4시', '4시.png', '4시'), item(6, 5, '5시', '5시.png', '5시'), item(6, 6, '6시', '6시.png', '6시'),
-          item(6, 7, '7시', '7시.png', '7시'), item(6, 8, '8시', '8시.png', '8시'), item(6, 9, '9시', '9시.png', '9시'), item(6, 10, '10시', '10시.png', '10시'), item(6, 11, '11시', '11시.png', '11시'), item(6, 12, '12시', '12시.png', '12시'),
-          item(6, 13, '5분', '5분.png', '5분'), item(6, 14, '10분', '10분.png', '10분'), item(6, 15, '15분', '15분.png', '15분'), item(6, 16, '20분', '20분.png', '20분'), item(6, 17, '25분', '25분.png', '25분'), item(6, 18, '30분', '30분.png', '30분'),
-          item(6, 19, '35분', '35분.png', '35분'), item(6, 20, '40분', '40분.png', '40분'), item(6, 21, '45분', '45분.png', '45분'), item(6, 22, '50분', '50분.png', '50분'), item(6, 23, '55분', '55분.png', '55분'),
+          item(6, 1, '1시', '1시.png', '1시'), item(6, 2, '2시', '2시.png', '2시'), item(6, 3, '3시', '3시.png', '3시'), item(6, 4, '4시', '4시.png', '4시'),
+          item(6, 5, '5시', '5시.png', '5시'), item(6, 6, '6시', '6시.png', '6시'), item(6, 7, '7시', '7시.png', '7시'), item(6, 8, '8시', '8시.png', '8시'),
+          item(6, 9, '9시', '9시.png', '9시'), item(6, 10, '10시', '10시.png', '10시'), item(6, 11, '11시', '11시.png', '11시'), item(6, 12, '12시', '12시.png', '12시'),
+          item(6, 13, '5분', '5분.png', '5분'), item(6, 14, '10분', '10분.png', '10분'), item(6, 15, '15분', '15분.png', '15분'), item(6, 16, '20분', '20분.png', '20분'),
+          item(6, 17, '25분', '25분.png', '25분'), item(6, 18, '30분', '30분.png', '30분'), item(6, 19, '35분', '35분.png', '35분'), item(6, 20, '40분', '40분.png', '40분'),
+          item(6, 21, '45분', '45분.png', '45분'), item(6, 22, '50분', '50분.png', '50분'), item(6, 23, '55분', '55분.png', '55분'),
           item(6, 24, '몇 시예요? 8시예요.', '몇 시예요 8시예요.png', '시간을 묻고 답하는 장면', 'expression'),
           item(6, 25, '몇 시예요? 12시 10분이에요.', '몇 시예요 12시 10분이에요.png', '시간과 분을 묻고 답하는 장면', 'expression')
         ]
@@ -113,9 +139,11 @@
         youtube: 'https://youtu.be/eYaStpLFsoM',
         zep: zep('https://quiz.zep.us/play/3P73bq', 'https://quiz.zep.us/play/nLegJr', 'https://quiz.zep.us/play/Z9Yooq', 'https://quiz.zep.us/play/BjNaae'),
         vocab: [
-          item(7, 1, '1월', '1월.png', '1월'), item(7, 2, '2월', '2월.png', '2월'), item(7, 3, '3월', '3월.png', '3월'), item(7, 4, '4월', '4월.png', '4월'), item(7, 5, '5월', '5월.png', '5월'), item(7, 6, '6월', '6월.png', '6월'),
-          item(7, 7, '7월', '7월.png', '7월'), item(7, 8, '8월', '8월.png', '8월'), item(7, 9, '9월', '9월.png', '9월'), item(7, 10, '10월', '10월.png', '10월'), item(7, 11, '11월', '11월.png', '11월'), item(7, 12, '12월', '12월.png', '12월'),
-          item(7, 13, '월요일', '월요일.png', '월요일'), item(7, 14, '화요일', '화요일.png', '화요일'), item(7, 15, '수요일', '수요일.png', '수요일'), item(7, 16, '목요일', '목요일.png', '목요일'), item(7, 17, '금요일', '금요일.png', '금요일'), item(7, 18, '토요일', '토요일.png', '토요일'), item(7, 19, '일요일', '일요일.png', '일요일'),
+          item(7, 1, '1월', '1월.png', '1월'), item(7, 2, '2월', '2월.png', '2월'), item(7, 3, '3월', '3월.png', '3월'), item(7, 4, '4월', '4월.png', '4월'),
+          item(7, 5, '5월', '5월.png', '5월'), item(7, 6, '6월', '6월.png', '6월'), item(7, 7, '7월', '7월.png', '7월'), item(7, 8, '8월', '8월.png', '8월'),
+          item(7, 9, '9월', '9월.png', '9월'), item(7, 10, '10월', '10월.png', '10월'), item(7, 11, '11월', '11월.png', '11월'), item(7, 12, '12월', '12월.png', '12월'),
+          item(7, 13, '월요일', '월요일.png', '월요일'), item(7, 14, '화요일', '화요일.png', '화요일'), item(7, 15, '수요일', '수요일.png', '수요일'), item(7, 16, '목요일', '목요일.png', '목요일'),
+          item(7, 17, '금요일', '금요일.png', '금요일'), item(7, 18, '토요일', '토요일.png', '토요일'), item(7, 19, '일요일', '일요일.png', '일요일'),
           item(7, 20, '오늘이 몇 월 며칠이에요? 4월 10일이에요.', '오늘이 몇 월 며칠이에요 4월 10일이에요.png', '날짜를 묻고 답하는 장면', 'expression'),
           item(7, 21, '오늘이 무슨 요일이에요? 금요일이에요.', '오늘이 무슨 요일이에요 금요일이에요.png', '요일을 묻고 답하는 장면', 'expression')
         ]
@@ -126,8 +154,8 @@
         youtube: 'https://youtu.be/fR6uOg7J2FE',
         zep: zep('https://quiz.zep.us/play/wzE77d', 'https://quiz.zep.us/play/jlVFQQ', 'https://quiz.zep.us/play/gGa9oQ', 'https://quiz.zep.us/play/JdOPM3'),
         vocab: [
-          item(8, 1, '가수', '가수.png', '가수'), item(8, 2, '그림 그리기', '그림 그리기.png', '그림 그리기'), item(8, 3, '노래 부르기', '노래 부르기.png', '노래 부르기'), item(8, 4, '드라마', '드라마.png', '드라마'),
-          item(8, 5, '영화', '영화.png', '영화'), item(8, 6, '영화배우', '영화배우.png', '영화배우'), item(8, 7, '운동선수', '운동선수.png', '운동선수'), item(8, 8, '춤', '춤.png', '춤'),
+          item(8, 1, '가수', '가수.png', '가수'), item(8, 2, '그림 그리기', '그림 그리기.png', '그림 그리기'), item(8, 3, '노래 부르기', '노래 부르기.png', '노래 부르기'),
+          item(8, 4, '드라마', '드라마.png', '드라마'), item(8, 5, '영화', '영화.png', '영화'), item(8, 6, '영화배우', '영화배우.png', '영화배우'), item(8, 7, '운동선수', '운동선수.png', '운동선수'), item(8, 8, '춤', '춤.png', '춤'),
           item(8, 9, '이 가수를 좋아해요? 아니요, 안 좋아해요.', '이 가수를 좋아해요 아니요 안 좋아해요.png', '좋아하는지 묻고 답하는 장면', 'expression'),
           item(8, 10, '춤을 좋아해요? 네, 좋아해요.', '춤을 좋아해요 네 좋아해요.png', '춤을 좋아하는지 묻고 답하는 장면', 'expression')
         ]
@@ -138,9 +166,10 @@
         youtube: 'https://youtu.be/6zjPUvZZstM',
         zep: zep('https://quiz.zep.us/play/1GER1W', 'https://quiz.zep.us/play/Qaox97', 'https://quiz.zep.us/play/476J9E', 'https://quiz.zep.us/play/pnA6W3'),
         vocab: [
-          item(9, 1, '갈비탕', '갈비탕.png', '갈비탕'), item(9, 2, '김밥', '김밥.png', '김밥'), item(9, 3, '김치', '김치.png', '김치'), item(9, 4, '떡국', '떡국.png', '떡국'), item(9, 5, '떡볶이', '떡볶이.png', '떡볶이'), item(9, 6, '미역국', '미역국.png', '미역국'),
-          item(9, 7, '비빔밥', '비빔밥.png', '비빔밥'), item(9, 8, '삼겹살', '삼겹살.png', '삼겹살'), item(9, 9, '삼계탕', '삼계탕.png', '삼계탕'), item(9, 10, '아이스크림', '아이스크림.png', '아이스크림'),
-          item(9, 11, '맛있어요', '맛있어요.png', '맛있는 모습'), item(9, 12, '맛없어요', '맛없어요.png', '맛없는 모습'), item(9, 13, '길어요', '길어요.png', '긴 모습'), item(9, 14, '짧아요', '짧아요.png', '짧은 모습'), item(9, 15, '작아요', '작아요.png', '작은 모습'), item(9, 16, '커요', '커요.png', '큰 모습'), item(9, 17, '재미있어요', '재미있어요.png', '재미있는 모습'), item(9, 18, '재미없어요', '재미없어요.png', '재미없는 모습'),
+          item(9, 1, '갈비탕', '갈비탕.png', '갈비탕'), item(9, 2, '김밥', '김밥.png', '김밥'), item(9, 3, '김치', '김치.png', '김치'), item(9, 4, '떡국', '떡국.png', '떡국'),
+          item(9, 5, '떡볶이', '떡볶이.png', '떡볶이'), item(9, 6, '미역국', '미역국.png', '미역국'), item(9, 7, '비빔밥', '비빔밥.png', '비빔밥'), item(9, 8, '삼겹살', '삼겹살.png', '삼겹살'),
+          item(9, 9, '삼계탕', '삼계탕.png', '삼계탕'), item(9, 10, '아이스크림', '아이스크림.png', '아이스크림'), item(9, 11, '맛있어요', '맛있어요.png', '맛있는 모습'), item(9, 12, '맛없어요', '맛없어요.png', '맛없는 모습'),
+          item(9, 13, '길어요', '길어요.png', '긴 모습'), item(9, 14, '짧아요', '짧아요.png', '짧은 모습'), item(9, 15, '작아요', '작아요.png', '작은 모습'), item(9, 16, '커요', '커요.png', '큰 모습'), item(9, 17, '재미있어요', '재미있어요.png', '재미있는 모습'), item(9, 18, '재미없어요', '재미없어요.png', '재미없는 모습'),
           item(9, 19, '머리가 어때요? 너무 짧아요.', '머리가 어때요 너무 짧아요.png', '머리 길이를 묻고 답하는 장면', 'expression'),
           item(9, 20, '옷이 어때요? 너무 커요.', '옷이 어때 너무 커요.png', '옷 크기를 묻고 답하는 장면', 'expression')
         ]
@@ -149,12 +178,7 @@
         id: 10,
         title: '종합연습',
         youtube: 'https://youtu.be/gjjcGMOJQws',
-        zep: zep(
-          'https://quiz.zep.us/play/xERr5w',
-          'https://quiz.zep.us/play/N3LNP7',
-          'https://quiz.zep.us/play/Z9Yoaq',
-          'https://quiz.zep.us/play/qnLp1L'
-        ),
+        zep: zep('https://quiz.zep.us/play/xERr5w', 'https://quiz.zep.us/play/N3LNP7', 'https://quiz.zep.us/play/Z9Yoaq', 'https://quiz.zep.us/play/qnLp1L'),
         practiceOnly: true,
         vocab: []
       }
@@ -167,7 +191,7 @@
 
     function runTests() {
       console.assert(Array.isArray(UNITS), 'UNITS should be an array');
-      console.assert(UNITS.length >= 9, 'UNITS should include at least 9 units');
+      console.assert(UNITS.length >= 10, 'UNITS should include at least 10 units');
       console.assert(UNITS.every(u => u.id && u.title && !('subtitle' in u) && u.youtube && u.zep && Array.isArray(u.vocab)), 'Every unit needs id, title, youtube, zep, vocab and no subtitle');
       console.assert(UNITS.every(u => ['english', 'chinese', 'russian', 'vietnamese'].every(k => u.zep[k])), 'Every unit needs 4 ZEP links');
     }
@@ -195,66 +219,7 @@
     function unitMenu() {
       const u = unit();
       const isReviewUnit = u.practiceOnly === true;
-
-      return `
-        ${header(`${u.id}단원`, u.title, 'home')}
-
-        <main class="mx-auto max-w-6xl px-4 py-8 sm:px-6 fade-in">
-          <section class="mb-6 rounded-[24px] bg-white p-6 shadow-sm ring-1 ring-slate-200 sm:p-8">
-            <div class="text-sm font-bold text-indigo-600">
-              ${isReviewUnit ? '종합연습 안내' : '학습 안내'}
-            </div>
-
-            <div class="mt-2 text-2xl font-extrabold text-slate-900">
-              ${isReviewUnit ? '종합연습을 시작해 보세요.' : '원하는 학습을 선택하세요.'}
-            </div>
-
-            <p class="mt-3 text-slate-500">
-              ${isReviewUnit
-                ? '영상 보기와 ZEP퀴즈를 통해 1~9단원 내용을 종합적으로 복습합니다.'
-                : '영상 보기, 단어 공부, 반복 연습, ZEP퀴즈 단어 테스트를 할 수 있습니다.'}
-            </p>
-          </section>
-
-          <div class="grid gap-5 ${isReviewUnit ? 'md:grid-cols-2' : 'md:grid-cols-2'}">
-            ${menuCard(
-              '▶️',
-              '동영상 보기',
-              isReviewUnit
-                ? '종합연습 강의 영상으로 이동합니다.'
-                : '유튜브 학습 영상으로 이동합니다.',
-              `<a href="${u.youtube}" target="_blank" rel="noreferrer" class="mt-4 inline-block w-full rounded-2xl bg-red-500 px-5 py-3 text-center font-extrabold text-white shadow hover:bg-red-600">동영상 보러가기</a>`,
-              'red'
-            )}
-
-            ${isReviewUnit ? '' : menuCard(
-              '📚',
-              '단어 공부',
-              '핵심 단어를 그림과 소리로 공부합니다.',
-              `<button onclick="go('study')" class="mt-4 w-full rounded-2xl bg-emerald-500 px-5 py-3 font-extrabold text-white shadow hover:bg-emerald-600">단어 공부하기</button>`,
-              'emerald'
-            )}
-
-            ${isReviewUnit ? '' : menuCard(
-              '🔁',
-              '단어 연습하기',
-              '배운 단어를 반복 문제로 연습합니다.',
-              `<button onclick="startQuiz()" class="mt-4 w-full rounded-2xl bg-indigo-600 px-5 py-3 font-extrabold text-white shadow hover:bg-indigo-700">반복 연습 시작</button>`,
-              'indigo'
-            )}
-
-            ${menuCard(
-              '🎮',
-              isReviewUnit ? 'ZEP퀴즈 종합 테스트' : 'ZEP퀴즈 단어 테스트',
-              isReviewUnit
-                ? '언어를 선택한 뒤 종합 ZEP퀴즈로 이동합니다.'
-                : '언어를 선택한 뒤 ZEP퀴즈로 이동합니다.',
-              `<button onclick="go('zepMenu')" class="mt-4 w-full rounded-2xl bg-violet-600 px-5 py-3 font-extrabold text-white shadow hover:bg-violet-700">ZEP퀴즈 선택하기</button>`,
-              'violet'
-            )}
-          </div>
-        </main>
-      `;
+      return `${header(`${u.id}단원`, u.title, 'home')}<main class="mx-auto max-w-6xl px-4 py-8 sm:px-6 fade-in"><section class="mb-6 rounded-[24px] bg-white p-6 shadow-sm ring-1 ring-slate-200 sm:p-8"><div class="text-sm font-bold text-indigo-600">${isReviewUnit ? '종합연습 안내' : '학습 안내'}</div><div class="mt-2 text-2xl font-extrabold text-slate-900">${isReviewUnit ? '종합연습을 시작해 보세요.' : '원하는 학습을 선택하세요.'}</div><p class="mt-3 text-slate-500">${isReviewUnit ? '영상 보기와 ZEP퀴즈를 통해 1~9단원 내용을 종합적으로 복습합니다.' : '영상 보기, 단어 공부, 반복 연습, ZEP퀴즈 단어 테스트를 할 수 있습니다.'}</p></section><div class="grid gap-5 md:grid-cols-2">${menuCard('▶️', '동영상 보기', isReviewUnit ? '종합연습 강의 영상으로 이동합니다.' : '유튜브 학습 영상으로 이동합니다.', `<a href="${u.youtube}" target="_blank" rel="noreferrer" class="mt-4 inline-block w-full rounded-2xl bg-red-500 px-5 py-3 text-center font-extrabold text-white shadow hover:bg-red-600">동영상 보러가기</a>`, 'red')}${isReviewUnit ? '' : menuCard('📚', '단어 공부', '핵심 단어를 그림과 소리로 공부합니다.', `<button onclick="go('study')" class="mt-4 w-full rounded-2xl bg-emerald-500 px-5 py-3 font-extrabold text-white shadow hover:bg-emerald-600">단어 공부하기</button>`, 'emerald')}${isReviewUnit ? '' : menuCard('🔁', '단어 연습하기', '배운 단어를 반복 문제로 연습합니다.', `<button onclick="startQuiz()" class="mt-4 w-full rounded-2xl bg-indigo-600 px-5 py-3 font-extrabold text-white shadow hover:bg-indigo-700">반복 연습 시작</button>`, 'indigo')}${menuCard('🎮', isReviewUnit ? 'ZEP퀴즈 종합 테스트' : 'ZEP퀴즈 단어 테스트', isReviewUnit ? '언어를 선택한 뒤 종합 ZEP퀴즈로 이동합니다.' : '언어를 선택한 뒤 ZEP퀴즈로 이동합니다.', `<button onclick="go('zepMenu')" class="mt-4 w-full rounded-2xl bg-violet-600 px-5 py-3 font-extrabold text-white shadow hover:bg-violet-700">ZEP퀴즈 선택하기</button>`, 'violet')}</div></main>`;
     }
 
     function menuCard(icon, title, desc, action, color) { return `<section class="rounded-[28px] bg-white p-6 shadow-sm ring-1 ring-slate-200"><div class="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-${color}-50 text-3xl">${icon}</div><div class="text-2xl font-extrabold">${title}</div><p class="mt-3 min-h-[56px] text-sm leading-6 text-slate-500">${desc}</p>${action}</section>`; }
